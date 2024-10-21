@@ -39,7 +39,7 @@ const StaffSideBar = ({selected,setSelected}:{selected:string,setSelected:any}) 
         
             }
         }
-    },[page])
+    },[page,setSelected])
     const click = async () => {
         await logout()
     }

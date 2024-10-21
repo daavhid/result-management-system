@@ -58,7 +58,7 @@ const AdminDashboard = () => {
     <div className='grid grid-cols-3 w-[850px] mx-auto ml-20 gap-4 text-white '>
         {data.map((item, index)=>{
             return(
-                <Card className=''>
+                <Card key={index} className=''>
                     <CardHeader>
                         <item.icon size={40} className='text-tone6 mx-auto text-center'/>
                     </CardHeader>

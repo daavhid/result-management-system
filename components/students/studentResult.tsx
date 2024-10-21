@@ -92,7 +92,7 @@ const StudentResult = ({matric_number,user}:{matric_number?:string,user:any}) =>
     }
     fetch()
     
-},[user,semesterId])
+},[user,semesterId,results])
 const handlePrint = useReactToPrint({
     contentRef:printRef
 })

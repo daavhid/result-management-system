@@ -32,7 +32,7 @@ const VerificationPage = () => {
 
             }
         })
-    },[token])
+    },[token,router])
 
     useEffect(()=>{
         onSubmit()

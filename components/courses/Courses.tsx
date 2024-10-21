@@ -94,8 +94,8 @@ const Courses = () => {
                                     </SelectTrigger>
                                 </FormControl>
                                 <SelectContent onCloseAutoFocus={(e)=>e.preventDefault()} >
-                                    {departments?.sort((a:any,b:any):number =>{if(a.departmentCode < b.departmentCode)return -1})?.map(department => (
-                                        <div >
+                                    {departments?.sort((a:any,b:any):number =>{if(a.departmentCode < b.departmentCode)return -1})?.map((department,index) => (
+                                        <div key={index} >
                                             <SelectItem className=''   value={department.departmentCode}>{department.departmentCode.toUpperCase()}</SelectItem>
                                         </div>
                                     ))}

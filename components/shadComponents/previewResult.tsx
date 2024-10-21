@@ -103,8 +103,8 @@ const PreviewResultTable = () => {
                     </SelectTrigger>
                     
                     <SelectContent >
-                        {semester?.map(sem => (
-                            <div >
+                        {semester?.map((sem,index) => (
+                            <div key={index}>
                                 <SelectItem   value={sem.id}>{sem.semesterCode.replace('-',' ')}</SelectItem>
                             </div>
                         ))}

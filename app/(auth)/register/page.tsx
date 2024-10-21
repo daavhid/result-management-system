@@ -36,7 +36,7 @@ import Link from 'next/link'
     subsets:['latin']
 })
 
-const registerPage = () => {
+const page = () => {
     const router = useRouter()
     const [pending,setPending] = useState(false)
     const [error,setError] = useState('')
@@ -175,4 +175,4 @@ const registerPage = () => {
   )
 }
 
-export default registerPage
+export default page

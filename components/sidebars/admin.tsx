@@ -55,7 +55,7 @@ const AdminSideBar = ({selected,setSelected}:{selected:string,setSelected:any}) 
         
             }
         }
-    },[page,selected])
+    },[page,selected,setSelected])
     // const [selected,setSelected] = useState('dashboard')
     console.log(page,'this is the pathName')
     const click = async () => {

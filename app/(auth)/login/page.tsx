@@ -8,7 +8,7 @@ import { roboto } from '../register/page'
 import { signInSchema } from '@/schemas'
 import * as z from 'zod'
 import axios from 'axios'
-import { Router } from 'next/router'
+
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -20,7 +20,7 @@ import { IoKeyOutline } from "react-icons/io5";
 
 
 
-const loginPage = () => {
+const page = () => {
 
     const router = useRouter()
     const [error,setError] = useState('')
@@ -120,4 +120,4 @@ const loginPage = () => {
 }
 
 
-export default loginPage
+export default page

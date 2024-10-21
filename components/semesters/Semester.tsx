@@ -105,8 +105,8 @@ const Semester = () => {
                                     </SelectTrigger>
                                 </FormControl>
                                 <SelectContent >
-                                    {semesters.map(semester => (
-                                        <div >
+                                    {semesters.map((semester,index) => (
+                                        <div key={index}>
                                             <SelectItem   value={semester.value}>{semester.name}</SelectItem>
                                         </div>
                                     ))}
