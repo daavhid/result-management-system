@@ -31,10 +31,6 @@ import { useRouter } from 'next/navigation'
 import { registerSchema } from '@/schemas'
 import Link from 'next/link'
 
- export const roboto = Nunito_Sans({
-    weight:['500','600'],
-    subsets:['latin']
-})
 
 const Page = () => {
     const router = useRouter()
@@ -109,7 +105,7 @@ const Page = () => {
                             <FormControl>
                                 <div className='bg-white/50 flex items-center relative'>
                                     <MdPerson className='  w-10 h-10 p-1   absolute left-1 top[50%]'/>
-                                    <Input className={cn(roboto.className,' bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} placeholder='Username' {...field} disabled={isLoading}/>
+                                    <Input className={cn(' bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} placeholder='Username' {...field} disabled={isLoading}/>
                                 </div>
                             </FormControl>
                             <FormMessage/>
@@ -124,7 +120,7 @@ const Page = () => {
                             <FormControl>
                                 <div className='bg-white/50 flex items-center relative'>
                                     <MdEmail className=' w-10 h-10 p-1   absolute left-1 top[50%]'/>
-                                    <Input className={cn(roboto.className,'bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='email' placeholder='Email Address' {...field} disabled={isLoading}/>
+                                    <Input className={cn('bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='email' placeholder='Email Address' {...field} disabled={isLoading}/>
                                 </div>
                             </FormControl>
                             <FormMessage/>
@@ -139,7 +135,7 @@ const Page = () => {
                             <FormControl>
                                 <div className='bg-white/50 flex items-center relative '>
                                     <IoKeyOutline   className='w-10 h-10 p-1   absolute left-1 top[50%]'/>
-                                    <Input className={cn(roboto.className,' bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='password' placeholder='Password' {...field} disabled={isLoading}/>
+                                    <Input className={cn(' bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='password' placeholder='Password' {...field} disabled={isLoading}/>
                                 </div>                        
                             </FormControl>
                             
@@ -156,7 +152,7 @@ const Page = () => {
                             <FormControl>
                                 <div className='bg-white/50 flex items-center relative'>
                                     <MdVpnKey className='w-10 h-10 p-1   absolute left-1 top[50%]'/>
-                                    <Input className={cn(roboto.className,' bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='password' placeholder='Secret Key' {...field} disabled={isLoading}/>
+                                    <Input className={cn(' bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='password' placeholder='Secret Key' {...field} disabled={isLoading}/>
                                 </div>
                             </FormControl>
                             <FormMessage/>

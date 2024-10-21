@@ -4,7 +4,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 import React, { useEffect, useState } from 'react'
-import { roboto } from '../register/page'
+// import { roboto } from '../register/page'
 import { signInSchema } from '@/schemas'
 import * as z from 'zod'
 import axios from 'axios'
@@ -53,7 +53,7 @@ const Page = () => {
             }
             if(data?.success){
                 setSuccess(data.success)
-                router.push('dash')
+                router.push('dashboard')
             }
             console.log(data)
             
@@ -83,7 +83,7 @@ const Page = () => {
                                 <FormControl>
                                 <div className='bg-white/50 flex items-center relative '>
                                     <MdEmail className=' w-10 h-10 p-1   absolute left-1 top[50%]'/>
-                                    <Input className={cn(roboto.className,'bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='email' placeholder='Email Address' {...field} disabled={isLoading}/>
+                                    <Input className={cn('bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='email' placeholder='Email Address' {...field} disabled={isLoading}/>
                                 </div>
                                 </FormControl>
                                 <FormMessage/>
@@ -98,7 +98,7 @@ const Page = () => {
                                 <FormControl>
                                 <div className='bg-white/50 flex items-center relative'>
                                     <IoKeyOutline   className='w-10 h-10 p-1   absolute left-1 top[50%]'/>
-                                    <Input className={cn(roboto.className,' bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='password' placeholder='Password' {...field} disabled={isLoading}/>
+                                    <Input className={cn(' bg-white/50 pl-14 font-[500] w-full h-10 outline-none border-none focus-visible:ring-0 focus-within:ring-white/50  rounded-none py-6 ring-0  focus-visible:ring-offset-0  ')} type='password' placeholder='Password' {...field} disabled={isLoading}/>
                                 </div>   
                                 </FormControl>
                                 <FormMessage/>
