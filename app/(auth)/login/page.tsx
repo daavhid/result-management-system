@@ -20,7 +20,7 @@ import { IoKeyOutline } from "react-icons/io5";
 
 
 
-const page = () => {
+const Page = () => {
 
     const router = useRouter()
     const [error,setError] = useState('')
@@ -120,4 +120,4 @@ const page = () => {
 }
 
 
-export default page
+export default Page

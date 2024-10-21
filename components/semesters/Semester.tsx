@@ -129,8 +129,8 @@ const Semester = () => {
                                     </SelectTrigger>
                                 </FormControl>
                                 <SelectContent >
-                                    {sessions.map(session => (
-                                        <div >
+                                    {sessions.map((session,index) => (
+                                        <div key={index} >
                                             <SelectItem   value={session.sessionCode}>{session.sessionCode}</SelectItem>
                                         </div>
                                     ))}

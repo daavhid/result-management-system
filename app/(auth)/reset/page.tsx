@@ -12,7 +12,7 @@ import { MdEmail, MdOutlineArrowOutward } from 'react-icons/md'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { reset } from '@/actions/reset'
 
-const page = () => {
+const Page = () => {
     const [error,setError] = useState('')
     const [success,setSuccess ] = useState('')
     const form = useForm<z.infer<typeof ResetSchema>>({
@@ -75,4 +75,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

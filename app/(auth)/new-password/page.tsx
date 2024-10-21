@@ -15,7 +15,7 @@ import { newPassword } from '@/actions/newPassword'
 import { useSearchParams } from 'next/navigation'
 import { IoKeyOutline } from "react-icons/io5";
 
-const page = () => {
+const Page = () => {
     const searchParams = useSearchParams()
     const token = searchParams.get('token')
     const [error,setError] = useState('')
@@ -90,4 +90,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

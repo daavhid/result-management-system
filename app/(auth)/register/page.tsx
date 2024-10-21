@@ -36,7 +36,7 @@ import Link from 'next/link'
     subsets:['latin']
 })
 
-const page = () => {
+const Page = () => {
     const router = useRouter()
     const [pending,setPending] = useState(false)
     const [error,setError] = useState('')
@@ -175,4 +175,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
