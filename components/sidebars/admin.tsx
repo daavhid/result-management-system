@@ -17,13 +17,13 @@ import { cn } from '@/lib/utils';
 
 const AdminData=[
     {
-        data:['/add-courses','/manage-courses','/add-department-courses','/manage-department-courses']
+        data:['/add-courses','/manage-courses']
     },
     {
         data:['/add-students','/manage-students']
     },
     {
-        data:['/add-staffs','/manage-staffs']
+        data:['/add-staffs','/manage-staffs','/assign-staffs','/manage-assign-staffs']
     },
     {
         data:['/add-sessions','/add-semesters','/manage-sessions','/manage-semesters']
@@ -43,7 +43,7 @@ const AdminSideBar = ({selected,setSelected}:{selected:string,setSelected:any}) 
         }
         if(page==='/preview-result'){
             setSelected(page)
-            setData(['preview-result'])
+            setData(['/preview-result'])
             
         }
         for(let sidedata of AdminData){

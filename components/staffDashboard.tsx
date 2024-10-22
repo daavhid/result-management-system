@@ -16,7 +16,7 @@ const data = [
     {
         icon:FaCirclePlus,
         text:'Add Result',
-        path:'add-results'
+        path:'add-result'
     },
     {
         icon:MdOutlineManageSearch,

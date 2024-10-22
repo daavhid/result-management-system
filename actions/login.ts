@@ -21,10 +21,9 @@ export const login  = async(values:z.infer<typeof signInSchema>)=>{
     const existingUser = await db.users.findUnique({
         where: {email:email},
     })
-    console.log(existingUser,'thi is existing user')
     if(!existingUser || !existingUser.email || !existingUser.password){
 
-        return {error: 'email does not exist'}
+        return {error: 'Invalid credentials'}
     }
     if(!existingUser.emailVerified){
         const verificationToken= await generateToken(existingUser.email);

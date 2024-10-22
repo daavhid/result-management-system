@@ -129,3 +129,44 @@ export const getDepartmentStaffs = async(deptCode:string)=>{
     })
     return staffs
 }
+
+export const getStaffs = async()=>{
+    const staffs = await db.staffs.findMany({
+        include:{
+            departments:true
+        }
+    })
+    return staffs
+}
+export const getStudents = async()=>{
+    const students = await db.students.findMany({
+        include:{
+            departments:true
+        }
+    })
+    return students
+}
+export const getAssignedStaffs = async(semesterCode:string)=>{
+    const courses = await db.departmentcourses.findMany({
+        where:{
+            semesterCode
+        },
+        include:{
+            staffs:{
+                select:{
+                    title:true,
+                    firstName:true,
+                    lastName:true,
+                    email:true
+                }
+            },
+            courses:{
+                select:{
+                    courseCode:true,
+                    title:true
+                }
+            }
+        }
+    })
+    return courses
+}

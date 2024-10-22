@@ -21,7 +21,7 @@ import DropDown from '../shadComponents/DropDown'
 
 
 const RegisterCourse = ({user}:{user:any}) => {
-    const printRef = useRef(null)
+    const printRef = useRef<any>(null)
     const [department,setDepartment] = useState('')
     const [student,setStudent] = useState<any>(null)
     const [semester,setSemester] = useState<any[]>([])
@@ -72,7 +72,7 @@ const RegisterCourse = ({user}:{user:any}) => {
         
             <DropDown properties={semester}  />
         </Select>
-        {<TableElement datas={courses} student={student} semesterId={semesterCode} ref={printRef}/>}
+        {<TableElement datas={courses} student={student} semesterId={semesterCode}/>}
         {/* <Button onClick={handlePrint}>print</Button> */}
         
     </div>

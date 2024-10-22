@@ -33,44 +33,83 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(prisma),
   session: { strategy: "jwt" },
   ...authConfig,
-  events:{
-    async linkAccount({user}){
-        console.log(user,'this is a event')
-        if(user.email){
-            await db.users.update({
-                where: {email:user.email},
-                data: {
-                    emailVerified:new Date()
-                }
-            })
-        }
-    }
-},
+//   events:{
+//     async linkAccount({user}){
+//         console.log(user,'this is a event')
+//         if(user.email){
+//             await db.users.update({
+//                 where: {email:user.email},
+//                 data: {
+//                     emailVerified:new Date()
+//                 }
+//             })
+//         }
+//     }
+// },
   providers:[
     Credentials({
         credentials: {
             email: {},
             password: {},
+
           },
-          authorize:async (credentials)=>{
-            try {
-              
+          async authorize(credentials) {
+            try{
+                const { email, password } = await signInSchema.parseAsync(credentials)
+                if(email){
+                    const User = await db.users.findUnique({
+                        where:{email:email as string},
+                        select:{
+                            id:true,
+                            username:true,
+                            password:true,
+                            email:true
 
-                    const { email, password } = await signInSchema.parseAsync(credentials)
-
-                    const user = await db.users.findUnique({
-                        where:{
-                            email:email
                         }
                     })
-                    if(!user) return null;
-                    const passwordMatch = await bcryptjs.compare(password,user.password)
-                    if(passwordMatch) return user;
-                
-            } catch (error) {
-                
+                    if(!User) return null;
+                    if(password){
+
+                        const passwordMatch = await bcryptjs.compare(password as string,User.password)
+                        if(passwordMatch) {
+                            return {
+                                id:`${User.id}`,
+                                email:User.email,
+                                password:User.password,
+                                username:User.username
+                            }
+                        };
+                    }
+                }
+                return null
+            }catch(error){
+                return null
             }
-          }
+            // const response = await fetch(request)
+            // if (!response.ok) return null
+            // return (await response.json()) ?? null
+          },
+        //   async authorize (credentials) {
+            // try {
+              
+
+            //         const { email, password } = await signInSchema.parseAsync(credentials)
+
+            //         const user = await db.users.findUnique({
+            //             where:{
+            //                 email:email
+            //             }
+            //         })
+            //         if(!user) return null;
+            //         const passwordMatch = await bcryptjs.compare(password,user.password)
+            //         if(passwordMatch) return user;
+            //         // return null;
+                
+            // } catch (error) {
+            //     return null
+                
+            // }
+        //   }
     })
   ],callbacks: {
     async jwt({token,user}){

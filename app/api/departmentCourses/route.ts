@@ -44,7 +44,6 @@ export async function POST(req:NextRequest,){
         }
         const newCourse = await db.departmentcourses.create({
             data: {
-               level:level,
                credit:credit,
                 departments:{
                     connect:{
@@ -148,9 +147,6 @@ export async function GET(req:Request,){
                     {
                         departmentCode:department as string
                     },
-                    {
-                        level:level
-                    }
                 ]
             },select:{
                 id:true,

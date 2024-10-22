@@ -45,16 +45,16 @@ const ViewResult = ({className,course,semId,refresh}:{className?:string,course:s
 
     
     return(
-        <div className={cn(className,' relative  bg-white rounded-xl shadow-2xl ')}>
+        <div className={cn(className,' relative  bg-white rounded-xl shadow-xl ')}>
                 <ScrollArea className={cn('w-fit relative bg-white rounded-xl ')}> 
-                    <p className='text-center font-semibold uppercase '>{course?.replace('-',' ')}</p>
+                    <p className='text-center font-semibold uppercase  py-6'>{course?.replace('-',' ')}</p>
                     <Table className=' mx-auto'>
                         <TableCaption >{results.length} results</TableCaption>
                         <TableHeader >
                             <TableRow>
                                 <TableHead className="w-[90px] font-medium uppercase text-center text-xs">S/N</TableHead>
                                 <TableHead className=" uppercase text-xs">Matric number</TableHead>
-                                <TableHead className=' w-[90px] text-sm'>C.A</TableHead>
+                                <TableHead className=' w-[90px] text-center text-sm'>C.A</TableHead>
                                 <TableHead className='w-[90px] uppercase  text-sm'>Exam</TableHead>
                             </TableRow>
                         </TableHeader>
@@ -62,10 +62,10 @@ const ViewResult = ({className,course,semId,refresh}:{className?:string,course:s
                             {results && results?.map((data:any, index:number) => (
                                 <TableRow className={cn(index%2===1&&'bg-blue-50 hover:bg-blue-50')} key={index}>
 
-                                    <TableCell>{index+1}</TableCell>
-                                    <TableCell>{data?.studentCourseReg?.matric_number}</TableCell>
-                                    <TableCell>{data.ca}</TableCell>
-                                    <TableCell className='capitalize'>{data?.exam}</TableCell>
+                                    <TableCell className='text-center'>{index+1}</TableCell>
+                                    <TableCell className='text-center'>{data?.studentCourseReg?.matric_number}</TableCell>
+                                    <TableCell className='text-center'>{data.ca}</TableCell>
+                                    <TableCell className='capitalize text-center'>{data?.exam}</TableCell>
                                 
                                 </TableRow>
                             ))}

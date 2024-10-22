@@ -18,7 +18,7 @@ export const reset = async(values:z.infer<typeof ResetSchema>)=>{
     })
 
     if(!existingUser){
-        return {error:'Email Does Not Exixts'}
+        return {error:'Invalid Credentials'}
     }
 
     // Todo Generate Token and Send Email

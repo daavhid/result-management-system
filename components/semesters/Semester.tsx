@@ -122,7 +122,10 @@ const Semester = () => {
                     render={({field})=>(
                         <FormItem>
                             <FormLabel>Session Code</FormLabel>
-                            <Select onValueChange={field.onChange} onOpenChange={setSelectedSession(field.value)} defaultValue={field.value}>
+                            <Select onValueChange={(e)=>{
+                                field.onChange(e)
+                                setSelectedSession(e)
+                                }} defaultValue={field.value}>
                                 <FormControl>
                                     <SelectTrigger>
                                         <SelectValue onClick={(e)=>{console.log(e)}} placeholder="----choose session----" />

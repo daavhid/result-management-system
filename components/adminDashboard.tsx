@@ -46,11 +46,7 @@ const data = [
         text:'Results',
         path:'preview-results'
     },
-    {
-        icon:PiNotepadFill,
-        text:'Assign Staff',
-        path:'add-department-courses'
-    },
+   
 ]
 
 const AdminDashboard = () => {

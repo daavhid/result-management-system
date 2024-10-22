@@ -19,17 +19,25 @@ export const result = async(courseCode:string,semesterCode:string)=>{
     })
     const results = await db.results.updateMany({
         where:{
-            studentCourseReg:{
-                departmentCourseId:courses?.id,
-                semesters:{
-                    semesterCode:semesterCode
+            AND:[
+                {
+
+                    studentCourseReg:{
+                        departmentCourseId:courses?.id,
+                    }
+                },
+                {
+                    studentCourseReg:{
+                        semesters:{
+                            semesterCode:semesterCode
+                        }
+                    }
                 }
-            }
-        },data:{
+            ]
+            },data:{
             pending:0
         }
     })
-    console.log(courses,'from the server')
     await db.departmentcourses.update({
         where:{
             id:courses?.id,
@@ -53,6 +61,8 @@ export const fetchResultStatus = async(semId:number)=>{
             semesters:{
                 id:semId
             }
+        },include:{
+            courses:true
         }
     });
     return {data:departmentCourses}

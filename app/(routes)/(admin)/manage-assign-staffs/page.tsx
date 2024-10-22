@@ -1,6 +1,5 @@
 
-
-
+import ManageAssignedStaff from '@/components/staffs/manageDeptCourse'
 import ManageStaff from '@/components/staffs/manageStaff'
 import { serverRole } from '@/lib/utils'
 import { redirect } from 'next/navigation'
@@ -16,7 +15,7 @@ const page = async () => {
         <div className='m-8 mb-1 flex justify-end pt-10'>
            
         </div>
-        <ManageStaff/>
+        <ManageAssignedStaff/>
         
     </div>
   )

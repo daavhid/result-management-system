@@ -80,19 +80,19 @@ const PreviewResultTable = () => {
         
     }
   return (
-    <div className='grid grid-cols-2 py-8  space-x-6'>
+    <div className='grid grid-cols-2 w-5/6 mx-auto pt-6  space-x-4'>
         <div className='w-full '>
-            <div className=' bg-white flex justify-between gap-2 text-black  mx-8 p-4 mb-4 rounded-xl shadow-xl'>
-                <div>
+            <div className=' bg-white border-2 border-tone6 flex justify-between gap-2 text-black p-4 mb-4 rounded-lg shadow-md'>
+                <div className=''>
 
-                    <p className='font-medium text-tone4'>Total Courses : {results.length}</p>
-                    <p className='font-medium text-tone4'>Available Results : {availableResult} </p>
-                    <p className='font-medium text-tone4'>Pending Resullts : {pendingResult}</p>
+                    <p className='font-medium text-tone4'>Total Courses  {results.length}</p>
+                    <p className='font-medium text-tone4'>Available Results  {availableResult} </p>
+                    <p className='font-medium text-tone4'>Pending Resullts  {pendingResult}</p>
                     {results.length!==0&&results.every(result=>{
                         if(result.resultsAvailable){
                             return true
                         }
-                    })&&<Button className='my-1' onClick={()=>{sendResult()}}>push to students</Button>}
+                    })&&<Button className='mt-1 bg-tone7 text-sm cursor-pointer' onClick={()=>{sendResult()}}>push to students</Button>}
                 </div>
                 <Select onValueChange={(e)=>{
                     setSemId(eval(e))
@@ -113,28 +113,30 @@ const PreviewResultTable = () => {
                 </Select>
 
             </div>
-            <ScrollArea className='border   mx-8 h-[380px] rounded-xl shadow-xl'> 
+            <ScrollArea className=' border-2 border-tone6  h-[380px]   rounded-xl shadow-lg'> 
                 <Table className=' bg-white'>
                 <TableCaption >Preview results</TableCaption>
                 <TableHeader >
                     <TableRow>
-                        <TableHead className="w-[90px] uppercase">S/N</TableHead>
-                        <TableHead className="w-[180px] uppercase">course</TableHead>
-                        <TableHead className='uppercase'>status </TableHead>
+                        <TableHead className="w-[40px] text-sm text-center uppercase">S/N</TableHead>
+                        <TableHead className=" text-sm text-center uppercase">course code</TableHead>
+                        <TableHead className="text-sm text-center uppercase">course title</TableHead>
+                        <TableHead className='uppercase text-sm text-center'>status </TableHead>
                         {/* <TableHead className='w-[90px]'>Exam</TableHead> */}
                     
                     </TableRow>
                 </TableHeader>
                 <TableBody>
                     {results?.map((data:any, index:number) => (
-                        <TableRow className={cn(index%2===1&&'bg-blue-50 hover:bg-blue-50','p-2 cursor-pointer')} key={index} onClick={()=>{
+                        <TableRow className={cn(index%2===1&&'bg-blue-50 hover:bg-blue-50','p-2 text-sm cursor-pointer')} key={index} onClick={()=>{
                             setCourse(data.courseCode)
                         }}>
 
-                            <TableCell>{index+1}</TableCell>
-                            <TableCell>{data?.courseCode.replace('-',' ').toUpperCase()}</TableCell>
+                            <TableCell className='text-sm font-medium text-center'>{index+1}</TableCell>
+                            <TableCell className='text-center font-medium  text-sm'>{data?.courseCode.replace('-',' ').toUpperCase()}</TableCell>
+                            <TableCell className='capitalize text-sm font-medium'>{data?.courses?.title}</TableCell>
                             <TableCell >
-                                <Button type='submit' className={cn(data?.resultsAvailable?'bg-green-500 hover:bg-green-500 ':'bg-red-500 hover:bg-red-500','text-white p-2 font-semibold capitalize w-fit  ')}>
+                                <Button type='submit' className={cn(data?.resultsAvailable?'bg-tone5 text-sm hover:bg-tone5':'bg-red-800 hover:bg-red-800','text-white text-sm p-2 font-semibold capitalize w-fit  ')}>
                                     {data?.resultsAvailable?'RECEIVED':'PENDING'}
                                 </Button>
                             </TableCell>
@@ -159,7 +161,7 @@ const PreviewResultTable = () => {
                     
                 </ScrollArea>
         </div>
-                <ViewResult className={'h-full w-fit'} course={course} semId={semId}/>
+                <ViewResult className={'h-full border-2 border-tone6 w-fit'} course={course} semId={semId}/>
     </div>
         
   )
